@@ -28,7 +28,10 @@ Giving users a fast and easy to track their money is important, but allowing the
 Please reach out to me on GitHub or via email.
 
 ## Preview
-> Preview ![Online_Offline_Budget_Tracker](assets/On_Off_Budget_1.png) 
+> Preview ![Online_Offline_Budget_Tracker](public/assets/On_Off_Budget_1.png) 
+*While online
+> Preview ![Online_Offline_Budget_Tracker](public/assets/On_Off_Budget_2.png) 
+*While offline
 
 
 
