@@ -14,17 +14,18 @@ const FILES_TO_CACHE = [
   const STATIC_CACHE = "static-cache-v2";
   const RUNTIME_CACHE = "budget-cache";
   
-  self.addEventListener("install", event => {
+  self.addEventListener("install", function (event) {
     event.waitUntil(
-      caches
-        .open(STATIC_CACHE)
-        .then(cache => cache.addAll(FILES_TO_CACHE))
-        .then(() => self.skipWaiting())
+      caches.open(STATIC_CACHE).then(cache => {
+        console.log("Files Pre-Cached Successfully!");
+        return cache.addAll(FILES_TO_CACHE)
+      })
     );
-  });
+
+    self.skipWaiting();
   
   // The activate handler takes care of cleaning up old caches.
-  self.addEventListener("activate", event => {
+  self.addEventListener("activate", function(event) {
     const currentCaches = [STATIC_CACHE, RUNTIME_CACHE];
     event.waitUntil(
       caches
