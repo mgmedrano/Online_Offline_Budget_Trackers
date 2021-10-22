@@ -9,12 +9,13 @@ const FILES_TO_CACHE = [
     "/icons/icon-512x512.png",
     "styles.css",
     "../routes/api.js",
+    "/service-worker.js"
   ];
   
   const STATIC_CACHE = "static-cache-v2";
   const RUNTIME_CACHE = "budget-cache";
   
-  self.addEventListener("install", function (event) {
+  self.addEventListener("install", (event) => {
     event.waitUntil(
       caches.open(STATIC_CACHE).then(cache => {
         console.log("Files Pre-Cached Successfully!");
@@ -25,7 +26,7 @@ const FILES_TO_CACHE = [
     self.skipWaiting();
   
   // The activate handler takes care of cleaning up old caches.
-  self.addEventListener("activate", function(event) {
+  self.addEventListener("activate", event => {
     const currentCaches = [STATIC_CACHE, RUNTIME_CACHE];
     event.waitUntil(
       caches
